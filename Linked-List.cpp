@@ -5,122 +5,6 @@
 ******************************************/
 
 #include<bits/stdc++.h>
-#define ll       long long int
-#define nitro    ios_base::sync_with_stdio(false),cin.tie(NULL),cout.tie(NULL);
-#define pb       push_back
-#define pi       3.1415926535897932384626
-#define mod      1000000007
-#define endl     '\n'
-#define DEBUG    false
-#define F        first
-#define S        second
-//#pragma GCC optimize "trapv"
-using namespace std;
- 
- class Node {
-    public:
-    int key;
-    Node * left;
-    Node * right;
-    Node (int n){
-        key=n;
-        left=right=NULL;
-    }
- };
-
- void inorder(Node * root){
-    if(root!=NULL){
-        inorder(root->left);
-        cout<<root->key<<" ";
-        inorder(root->right);
-    }
- }
-
- void preorder(Node * root){
-    if(root!=NULL){
-        cout<<root->key<<" ";
-        preorder(root->left);
-        preorder(root->right);
-    }
- }
-
- void postorder(Node * root){
-    if(root!=NULL){
-        postorder(root->left);
-        postorder(root->right);
-        cout<<root->key<<" ";
-    }
- }
-
- int heighttree(Node * root){
-    if(root==NULL){
-        return 0;
-    }
-    return max(heighttree(root->left),heighttree(root->right))+1;
- }
-
- void printkdist(Node * root,int k){
-    if(root==NULL){
-        return;
-    }
-    else if(k==0){
-        cout<<root->node<<" ";
-    }
-    else{
-        printkdist(root->left,k-1);
-        printkdist(root->right,k-1);
-    }
- }
-
-void levelorder(Node * root){
-    if(root==NULL){
-        return;
-    }
-    queue<Node *> q;
-    q.push(root);
-    while(q.empty()==false){
-        Node *curr= q.front();
-        q.pop();
-        cout<<curr->key<<" ";
-        if(curr->left!=NULL){
-            q.push(curr->left);
-        }
-        if(curr->right!=NULL){
-            q.push(curr->right);
-        }
-    }
-}
-
-int sizeoftree(Node * root){
-    if(root==NULL){
-        return 0;
-    }
-    return 1+ sizeoftree(root->left)+ sizeoftree(root->right);
-}
-
-int maximumtree(Node * root){
-    if(root==NULL){
-        return INT_MIN;
-    }
-    return max(root->key,max(maximumtree(root->left),maximumtree(root->right)));
-}
-
-int main()
-{
-    Node * root= new Node(10);
-    Node * leftfirst= new Node(25);
-    Node * rightfirst= new Node(30);
-    root->left=leftfirst;
-    root->right=rightfirst;
-    return 0;
-}
-/******************************************
-* AUTHOR : SUSHANT PANDEY *
-* NICK : samheuer26433 *
-* INSTITUTION : Lovely Professional University *
-******************************************/
-
-#include<bits/stdc++.h>
 
 #define ll       long long int
 #define nitro    ios_base::sync_with_stdio(false),cin.tie(NULL),cout.tie(NULL);
@@ -135,6 +19,7 @@ int main()
 using namespace std;
  
 class Node{
+    public:
     int node;
     Node* next;
 
